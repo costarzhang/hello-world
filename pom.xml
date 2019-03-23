@@ -1,52 +1,63 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>cz</groupId>
-  <artifactId>cz</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  
-  <dependencies>
-  	<dependency>
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>cn.zhangcl</groupId>
+    <artifactId>AirlineData</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <hadoop_version>2.6.5</hadoop_version>
+    </properties>
+
+    <dependencies>
+
+        <dependency>
             <groupId>org.apache.hadoop</groupId>
             <artifactId>hadoop-common</artifactId>
-            <version>2.6.5</version>
+            <version>${hadoop_version}</version>
         </dependency>
-        
+        <dependency>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-core</artifactId>
+            <version>1.2.1</version>
+        </dependency>
         <dependency>
             <groupId>org.apache.hadoop</groupId>
             <artifactId>hadoop-hdfs</artifactId>
-            <version>2.6.5</version>
+            <version>${hadoop_version}</version>
         </dependency>
-        
         <dependency>
             <groupId>org.apache.hadoop</groupId>
             <artifactId>hadoop-mapreduce-client-core</artifactId>
-            <version>2.6.5</version>
+            <version>${hadoop_version}</version>
         </dependency>
-        
-        <dependency>
-            <groupId>org.apache.hadoop</groupId>
-            <artifactId>hadoop-mapreduce-client-jobclient</artifactId>
-            <version>2.6.5</version>
-        </dependency>
-        
-        <dependency>
-            <groupId>org.apache.hadoop</groupId>
-            <artifactId>hadoop-mapreduce-client-common</artifactId>
-            <version>2.6.5</version>
-        </dependency>
-        
         <dependency>
             <groupId>jdk.tools</groupId>
             <artifactId>jdk.tools</artifactId>
             <version>1.8</version>
             <scope>system</scope>
-            <systemPath>${JAVA_HOME}/lib/tools.jar</systemPath>
+            <systemPath>${env.JAVA_HOME}/lib/tools.jar</systemPath>
         </dependency>
-        
-        <dependency> <!-- yarn相关 --> 
-        	<groupId>org.apache.hadoop</groupId> 
-       		<artifactId>hadoop-yarn-common</artifactId> 
-        	<version>2.6.5</version> 
+        <dependency>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-mapreduce-client-jobclient</artifactId>
+            <version>${hadoop_version}</version>
         </dependency>
-  </dependencies>
+        <dependency>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-mapreduce-client-common</artifactId>
+            <version>${hadoop_version}</version>
+        </dependency>
+    </dependencies>
+        <!-- 导入apache镜像原 -->
+    <repositories>
+        <repository>
+            <id>apache</id>
+            <url>http://maven.apache.org</url>
+        </repository>
+    </repositories>
 </project>
